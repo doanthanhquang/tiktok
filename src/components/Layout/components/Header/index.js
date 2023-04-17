@@ -1,15 +1,19 @@
+import { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleXmark,
   faSpinner,
   faMagnifyingGlass,
+  faSignIn,
 } from "@fortawesome/free-solid-svg-icons";
+import Tippy from "@tippyjs/react/headless";
 
+import Button from '~/components/Button';
+import { Wrapper as PropperWrapper } from "~/components/Propper";
 import styles from "./Header.module.scss";
 import images from "~/assets/images";
-import Tippy from "@tippyjs/react/headless";
-import { useEffect, useState } from "react";
+import AccountItem from "~/components/AccountItem";
 
 const cx = classNames.bind(styles);
 
@@ -18,8 +22,8 @@ function Header() {
 
   useEffect(() => {
     setTimeout(() => {
-      setSearchResult([1, 2]);
-    }, 3000);
+      setSearchResult([]);
+    }, 0);
   });
 
   return (
@@ -31,7 +35,13 @@ function Header() {
           visible={searchResult.length > 0}
           render={(attrs) => (
             <div className={cx("search-result")} tabIndex="-1" {...attrs}>
-              Kết quả
+              <PropperWrapper>
+                <h4 className={cx("search-title")}>Accounts</h4>
+                <AccountItem />
+                <AccountItem />
+                <AccountItem />
+                <AccountItem />
+              </PropperWrapper>
             </div>
           )}
         >
@@ -49,7 +59,10 @@ function Header() {
             </button>
           </div>
         </Tippy>
-        <div className={cx("action")}></div>
+        <div className={cx("actions")}>
+          <Button text>Up load</Button>
+          <Button primary leftIcon={<FontAwesomeIcon icon={faSignIn}/>}>Log in</Button>
+        </div>
       </div>
     </header>
   );
