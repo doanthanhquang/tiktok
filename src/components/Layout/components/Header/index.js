@@ -133,7 +133,7 @@ function Header() {
           >
             {currentUser ? (
               <Image
-                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/222ce39d85cfa971380544e85eb1a871.jpeg?x-expires=1683082800&x-signature=gHjMYu%2Fz6qowJ%2B%2B7L0SWkfMFp88%3D"
+                src="https://image.vtc.vn/resize/th/upload/2022/12/13/stream20221212t2030330631-07111086.jpg"
                 className={cx("user-avatar")}
                 alt="Nguyen Van A"
               />
